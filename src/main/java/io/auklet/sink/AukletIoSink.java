@@ -7,6 +7,7 @@ import io.auklet.config.AukletIoBrokers;
 import io.auklet.config.AukletIoCert;
 import net.jcip.annotations.ThreadSafe;
 import org.eclipse.paho.client.mqttv3.*;
+import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -41,7 +42,7 @@ public final class AukletIoSink extends AbstractSink {
             AukletIoBrokers brokers = new AukletIoBrokers();
             brokers.start(agent);
             org.eclipse.paho.client.mqttv3.logging.LoggerFactory.setLogger("io.auklet.misc.PahoLogger");
-            this.client = new MqttAsyncClient(brokers.getUrl(), agent.getDeviceAuth().getClientId());
+            this.client = new MqttAsyncClient(brokers.getUrl(), agent.getDeviceAuth().getClientId(), new MemoryPersistence(), new TimerPingSender());
             this.client.setCallback(this.getCallback());
             this.client.setBufferOpts(this.getDisconnectBufferOptions(agent));
             // Wait 10 seconds for connect to succeed, then give up.
