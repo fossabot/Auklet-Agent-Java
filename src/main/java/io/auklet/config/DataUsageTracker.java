@@ -3,6 +3,7 @@ package io.auklet.config;
 import edu.umd.cs.findbugs.annotations.NonNull;
 import io.auklet.Auklet;
 import io.auklet.AukletException;
+import io.auklet.misc.AukletDaemonExecutor;
 import io.auklet.misc.Util;
 import mjson.Json;
 import net.jcip.annotations.NotThreadSafe;
@@ -82,7 +83,7 @@ public final class DataUsageTracker extends AbstractConfigFile {
             synchronized (this.lock) {
                 if (this.currentWriteTask != null) currentWriteTask.cancel(false);
                 // Queue the new write task.
-                this.currentWriteTask = this.getAgent().scheduleOneShotTask(new Runnable() {
+                this.currentWriteTask = this.getAgent().scheduleOneShotTask(new AukletDaemonExecutor.CancelSilentlyRunnable() {
                     @Override
                     public void run() {
                         // This task is no longer pending, so clear its status.
