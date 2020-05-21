@@ -2,6 +2,7 @@
 
 # Auklet for Java
 [![Maintainability](https://api.codeclimate.com/v1/badges/e1ced62442c7cf49d58a/maintainability)](https://codeclimate.com/github/aukletio/Auklet-Agent-Java/maintainability)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjoey-fossa%2FAuklet-Agent-Java.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjoey-fossa%2FAuklet-Agent-Java?ref=badge_shield)
 
 This is the Java agent for Auklet, officially supporting Java 7+ and Android Jelly Bean or higher (4.1.x+, API level 16+).
 
@@ -244,3 +245,7 @@ When compiling on Java 8, use this syntax fix cross-compilation warnings (requir
 # Questions? Problems? Ideas?
 
 To get support, report a bug or suggest future ideas for Auklet, go to https://help.auklet.io and click the blue button in the lower-right corner to send a message to our support team.
+
+
+## License
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fjoey-fossa%2FAuklet-Agent-Java.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fjoey-fossa%2FAuklet-Agent-Java?ref=badge_large)
